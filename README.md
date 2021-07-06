@@ -1,8 +1,9 @@
 # Test-widowx-Arm
+This file is a tutorial for testing the joints of widowx_Arm by two methods.
 
 Author name: Amna Mazen Ali
 
-This file is a tutorial for testing the joints of widowx_Arm by two methods.
+
 
 
 
