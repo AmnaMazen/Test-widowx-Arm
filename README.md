@@ -64,6 +64,9 @@ In this method, direct commands will be sent to the joints with specific values 
 To check all available topic run:
 
   $ rostopic list
+  
+  
+# Send commands
 
 To send a specific data to a certain joint use the corresponding <topic-name>. Here is command to send "data: 0.0" to all joints
   
@@ -89,6 +92,8 @@ To check all available services run:
   
   $ rosservice list
   
+# Relax Joints
+  
 To relax the joints, call the following ROS services:
   
   $ rosservice call /joint_1/relax
@@ -102,6 +107,9 @@ To relax the joints, call the following ROS services:
   $ rosservice call /joint_5/relax
   
   $ rosservice call /gipper_revolute_joint/relax
+  
+  
+# Enable joints
   
 To enable the joints, call the following ROS services:
   
@@ -117,7 +125,9 @@ To enable the joints, call the following ROS services:
   
   $ rosservice call /gipper_revolute_joint/enable True
   
- 
+
+# Set speed of motors  
+  
 To set the speed of motors:
   
   $ rosservice call /joint_1/set_speed 1
