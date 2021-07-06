@@ -2,8 +2,7 @@
 
 Author name: Amna Mazen Ali
 
-This file is a tutorial for testing the joints of widowx_Arm
-by three methods.
+This file is a tutorial for testing the joints of widowx_Arm by two methods.
 
 
 
@@ -15,27 +14,27 @@ This package consists of three tools: the driver, a GUI for interacting with the
 
 1- Go to source file inside "widowx" workspace.
 
-$ cd ~/widowx/src
+  $ cd ~/widowx/src
 
 2- Clone Arbotix_python package:
 
-$ git clone https://github.com/vanadiumlabs/arbotix_ros.git
+  $ git clone https://github.com/vanadiumlabs/arbotix_ros.git
 
 3- source ROS workspace "widowx"
 
-$ cd ..
+  $ cd ..
 
-$ catkin_make
+  $ catkin_make
 
-$ source ./devel/setup.bash
+  $ source ./devel/setup.bash
 
 4- Change permission to access the port of widowx_arm
 
-$ chmod 777 /dev/ttyUSB0
+  $ chmod 777 /dev/ttyUSB0
 
-$ arbotix_terminal 
+  $ arbotix_terminal 
 
-$ ls
+  $ ls
 
 If the IDs of all joints are identified correctly you should get 
 
@@ -45,9 +44,95 @@ Which means it identifies the 6 joints of the arm.
 
 # Method 2: Direct commands to joints
 
+In this method, you need to launch controller already cloned in this tutorial: https://github.com/AmnaMazen/widowx-arm-ready-to-work-with-ROS
 
-sending direct commands to move , relax and enable joints
+To launch widowx-arm  controller:
+
+  $ cd ~/widowx
+
+  $ source ./devel/setup.bash
+
+  $ roslaunch widowx_arm_controller widowx_arm_controller.launch
+
+In this method, direct commands will be sent to the joints with specific values via ROS topic and to enable/relax the joints and set specific speed using ROS services
 
 
-# Method 3: Create a ROS package that sends different commands to each joint
+To check all available topic run:
+
+  $ rostopic list
+
+To send a specific data to a certain joint use the corresponding <topic-name>. Here is command to send "data: 0.0" to all joints
+  
+  $ rostopic pub /joint_1/command std_msgs/Float64 "data: 0.0" 
+  
+  $ rostopic pub /joint_2/command std_msgs/Float64 "data: 0.0" 
+  
+  $ rostopic pub /joint_3/command std_msgs/Float64 "data: 0.0" 
+  
+  $ rostopic pub /joint_4/command std_msgs/Float64 "data: 0.0" 
+  
+  $ rostopic pub /joint_5/command std_msgs/Float64 "data: 0.0" 
+  
+  $ rostopic pub /gripper_revolute_joint/command std_msgs/Float64 "data: 0.0" 
+  
+  $ rostopic pub /gripper_prismatic_joint/command std_msgs/Float64 "data: 0.0"
+
+Dynamixel motors work within the angular range [-pi/2, pi/2], thus the commands that can be sent to joints (1-5) must be within this range.
+  
+Gripper works in a different way of prismatic motion and it uses values between 0 and 0.05.
+  
+To check all available services run:
+  
+  $ rosservice list
+  
+To relax the joints, call the following ROS services:
+  
+  $ rosservice call /joint_1/relax
+  
+  $ rosservice call /joint_2/relax
+  
+  $ rosservice call /joint_3/relax
+  
+  $ rosservice call /joint_4/relax
+  
+  $ rosservice call /joint_5/relax
+  
+  $ rosservice call /gipper_revolute_joint/relax
+  
+To enable the joints, call the following ROS services:
+  
+  $ rosservice call /joint_1/enable True
+  
+  $ rosservice call /joint_2/enable True
+  
+  $ rosservice call /joint_3/enable True
+  
+  $ rosservice call /joint_4/enable True
+  
+  $ rosservice call /joint_5/enable True
+  
+  $ rosservice call /gipper_revolute_joint/enable True
+  
+ 
+To set the speed of motors:
+  
+  $ rosservice call /joint_1/set_speed 1
+  
+  $ rosservice call /joint_2/set_speed 1
+  
+  $ rosservice call /joint_3/set_speed 1
+  
+  $ rosservice call /joint_4/set_speed 1
+  
+  $ rosservice call /joint_5/set_speed 1
+  
+  $ rosservice call /gipper_revolute_joint/set_speed 1
+  
+  
+
+ 
+
+
+
+
 
