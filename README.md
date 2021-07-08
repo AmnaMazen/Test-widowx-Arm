@@ -44,11 +44,35 @@ If the IDs of all joints are identified correctly you should get
 
 1 2 3 4 5 6 .. .. .. .. 
 
+.. .. .. .. .. .. .. ..
+
 Which means it identifies the 6 joints of the arm. 
+
+You can control joints using arbotix_gui
+
+1- you need to run the controller already cloned in this tutorial: https://github.com/AmnaMazen/widowx-arm-ready-to-work-with-ROS
+
+$ cd ~/widowx
+
+  $ source ./devel/setup.bash
+
+  $ roslaunch widowx_arm_controller widowx_arm_controller.launch
+
+2- Launch the arbotix GUI
+
+ $arbotix_gui
+ 
+ Then you will see this GUI:
+
+<img src="./arbotix_gui.png">
+
+
+Check the box for the joints you want to control
+
 
 # Method 2: Direct commands to joints
 
-In this method, you need to launch controller already cloned in this tutorial: https://github.com/AmnaMazen/widowx-arm-ready-to-work-with-ROS
+In this method, you need to launch controller 
 
 To launch widowx-arm  controller:
 
