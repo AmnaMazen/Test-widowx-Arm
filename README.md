@@ -34,7 +34,7 @@ This package consists of three tools: the driver, a GUI for interacting with the
 
 4- Change permission to access the port of widowx_arm
 
-  $ chmod 777 /dev/ttyUSB0
+  $ sudo chmod 777 /dev/ttyUSB0
 
   $ arbotix_terminal 
 
