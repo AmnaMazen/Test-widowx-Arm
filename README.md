@@ -4,8 +4,7 @@ Author name: Amna Mazen Ali
 
 This file is a tutorial for testing the joints of widowx_Arm by two methods.
 
-
-
+I uploded a video about step by step tutorial on Youtube: https://www.youtube.com/watch?v=7_ccviZfnRo
 
 
 
